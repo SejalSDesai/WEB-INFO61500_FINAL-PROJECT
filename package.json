@@ -4,7 +4,14 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node api/server.js",
+    "server": "nodemon api/server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "seeder": "node api/utils/seeder.js",
+    "devl": "SET NODE_ENV=DEVELOPMENT& nodemon api/server",
+    "prod": "SET NODE_ENV=PRODUCTION& nodemon api/server",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false && npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
